@@ -1,0 +1,29 @@
+{
+  "name": "react-practice",
+  "version": "1.0.0",
+  "description": "\"This is react practice project\"",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/likhithsai963/react.git"
+  },
+  "author": "likhith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/likhithsai963/react/issues"
+  },
+  "homepage": "https://github.com/likhithsai963/react#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "browsersList":[
+    "last 2 versions"
+  ]
+}

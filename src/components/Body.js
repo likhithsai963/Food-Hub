@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withVegLabel } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -8,6 +8,8 @@ const Body = () => {
     const [listOfRestaurants, setListOfRestraunts] = useState([]);
     const [filteredRestaurant, setFilteredRestaurant] = useState([])
     const [searchText, setSearchText] = useState("")
+
+    const VegRestaurantCard = withVegLabel(RestaurantCard);
     useEffect(() => {
         fetchData();
     }, [])
@@ -25,7 +27,7 @@ const Body = () => {
     if (onlineStatus === false) {
         return <h1> Looks like You're offline!! Please check your internet connection</h1>
     }
-
+    console.log(listOfRestaurants)
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className="body">
             <div className="filter flex">
@@ -50,7 +52,12 @@ const Body = () => {
             </div>
             <div className="res-container flex flex-wrap">
                 {filteredRestaurant.map((restaurant) => (
-                    <Link key={restaurant?.info?.id} to={"/restaurants/" + restaurant?.info?.id}><RestaurantCard resData={restaurant?.info} /></Link>
+                    <Link key={restaurant?.info?.id} to={"/restaurants/" + restaurant?.info?.id}>
+                        {console.log(restaurant?.info?.veg + restaurant?.info.name)}
+                        {
+                            restaurant?.info?.veg  ? <VegRestaurantCard resData={restaurant?.info} /> : <RestaurantCard resData={restaurant?.info} />
+                        }
+                    </Link>
                 ))}
             </div>
         </div>

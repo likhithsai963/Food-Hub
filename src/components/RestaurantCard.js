@@ -10,8 +10,9 @@ const RestaurantCard = (props) => {
         costForTwo,
         deliveryTime,
       } = resData;
+      console.log(resData)
     return (
-        <div className="m-4 p-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200">
+        <div data-testid="resCard" className="m-4 p-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200">
             <img className="rounded-lg" alt="res-logo" src={CDN_URL +cloudinaryImageId}></img>
             <h3 className="font-bold py-4 text-lg">{name}</h3>
             <h4>{cuisines.join(',')}</h4>
@@ -28,7 +29,6 @@ export const withVegLabel = (RestaurantCard) =>{
             <div>
                <label className="absolute bg-white text-green-400 m-2 p-2 rounded-lg">veg</label> 
                <RestaurantCard {...props} />
-                
             </div>
         )
     }

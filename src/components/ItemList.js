@@ -9,7 +9,7 @@ const ItemList = ({ items }) => {
     }
     return (
         <div>
-            {items.map((item) => <div key={item.card.info.id} className="p-2b m-2  border-gray-200 border-b-2 text-left flex">
+            {items.map((item) => <div key={item.card.info.id} data-testid="items" className="p-2b m-2  border-gray-200 border-b-2 text-left flex">
                 <div className="w-9/12">
                     <div className="py-2">
                         <span>{item.card.info.name}</span>
